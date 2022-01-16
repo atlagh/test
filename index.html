@@ -6,25 +6,35 @@
 
 	<div 
 	  class="sidebar"
-	  data-view-url="https://atlagh.github.io/test/sidebar.html"
-	  data-view-id="sidebar"
 	>
-	</div>
-	<div
-	  style="display:block;"
-	  class="main"
-	  data-view-url="https://github.com/"
-	  data-view-id="content"
-	  data-view-partition="default"
-	>
+	 <ul id="accountsList">
+      <li class="profile" id="default">
+        <button  onclick="switchVisible();">Default</button>
+      </li>
+      <li class="profile" id="new">
+        <button  onclick="switchVisible();">New</button>
+      </li>
+    </ul>
 	</div>
 	<div
 	  style="display:none;"
 	  class="main"
+	  id= "Div1"
+	  data-view-url="https://github.com/"
+	  data-view-id="content"
+	  data-view-partition="default"
+	>
+	zdjzbdfkjb
+	</div>
+	<div
+	  style="display:block;"
+	  class="main"
+	  id = "Div2"
 	  data-view-url="https://google.com/"
 	  data-view-id="content"
 	  data-view-partition="default"
 	>
+	ksjbjdhb	
 	</div>
 </div>
 
@@ -66,6 +76,18 @@ window.onload = () => {
 }
 //this is a
 //https://atlagh.github.io/test/sidebar.html
+ function switchVisible() {
+            if (document.getElementById('Div1')) {
 
+                if (document.getElementById('Div1').style.display == 'none') {
+                    document.getElementById('Div1').style.display = 'block';
+                    document.getElementById('Div2').style.display = 'none';
+                }
+                else {
+                    document.getElementById('Div1').style.display = 'none';
+                    document.getElementById('Div2').style.display = 'block';
+                }
+            }
+}
 
 </script>
