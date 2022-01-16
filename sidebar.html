@@ -10,6 +10,81 @@
         <button>New</button>
       </li>
     </ul>
+<script>
+  window.onload = () => {
+    const newButton = document.getElementById("new");
+    const list = document.getElementById("accountsList");
+    // To persist the added accounts we'll add them to
+    // localStorage
+    let accounts = JSON.parse(localStorage.getItem("accounts"));
+    /* accounts: {
+     *    id: string,
+     *    name: string,
+     * }[]
+     */
+
+    // Ensure accounts is an array (e.g. on load when accounts
+    // is undefined)
+    if (!Array.isArray(accounts)) accounts = [];
+
+    // We'll come back to this below
+    const switchAccount = () => {};
+    document
+      .getElementById("default")
+      .childNodes[0].addEventListener("click", switchAccount);
+
+    const createID = () => "_" + Math.random().toString(36).substr(2, 9);
+
+    // This creates new <li> elements and adds
+    // the click event handler
+    const createElement = (account) => {
+      const li = document.createElement("li");
+      li.id = account.id;
+      li.classList.add("profile");
+      const button = document.createElement("button");
+      button.addEventListener("click", switchAccount);
+      button.innerHTML = account.name;
+      li.appendChild(button);
+      return li;
+    };
+
+    const addAccountsToDom = () => {
+      // We only want to add accounts that aren't already
+      // in the dom. So we'll filter accounts by ids in
+      // the DOM
+      const ids = Array.from(
+        document.querySelectorAll("#accountsList > li")
+      ).map(({ id }) => id);
+      const accountsToAdd = accounts.filter(({ id }) => !ids.includes(id));
+      // We'll add new <li>s as elements before new button
+      accountsToAdd.forEach((account) => {
+        list.insertBefore(createElement(account), newButton);
+      });
+    };
+    addAccountsToDom();
+
+    // Create new accounts when new button pressed
+    newButton.addEventListener("click", () => {
+      accounts.push({
+        name: accounts.length,
+        id: createID(),
+      });
+      localStorage.setItem("accounts", JSON.stringify(accounts));
+      addAccountsToDom();
+    });
+  };
+
+  const switchAccount = () => {
+  // Get the id of the button's <li> parent
+  const { id } = e.currentTarget.parentElement;
+         
+  window.todesktop.views.switch({
+    id: "content", // The data-view-id from index.html
+    url: "https://github.com",
+    partition: id,
+  });
+}
+</script>
   </body>
   <style>
     ul {
