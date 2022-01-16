@@ -17,14 +17,13 @@
     </ul>
 	</div>
 	<div
-	  style="display:none;"
+	  style="display:block;"
 	  class="main"
 	  id= "Div1"
 	  data-view-url="https://github.com/"
 	  data-view-id="content"
 	  data-view-partition="default"
 	>
-	zdjzbdfkjb
 	</div>
 	<div
 	  style="display:block;"
@@ -34,7 +33,6 @@
 	  data-view-id="content"
 	  data-view-partition="default"
 	>
-	ksjbjdhb	
 	</div>
 </div>
 
@@ -74,12 +72,18 @@
 window.onload = () => {
   window.todesktop.views.init();
 }
+
+// if (window.todesktop) {
+//   document.getElementById('Div1').style.display = 'block';
+//   document.getElementById('Div2').style.display = 'none';
+// }
+
 //this i
 //https://atlagh.github.io/test/sidebar.html
  function switchVisible() {
             if (document.getElementById('Div1')) {
 
-                if (document.getElementById('Div1').style.display == 'none') {
+                if (document.getElementById('Div2').style.display == 'block') {
                     document.getElementById('Div1').style.display = 'block';
                     document.getElementById('Div2').style.display = 'none';
                 }
