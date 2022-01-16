@@ -17,24 +17,15 @@
     </ul>
 	</div>
 
-	<div  class="main">
+
 			<div
-			  style="display:block;"
+			  class="main"
 			  id= "Div1"
 			  data-view-url="https://github.com/"
 			  data-view-id="content"
 			  data-view-partition="default"
 			>
 			</div>
-			<div
-			  style="display:block;"
-			  id = "Div2"
-			  data-view-url="https://google.com/"
-			  data-view-id="content"
-			  data-view-partition="default"
-			>
-			</div>
-	</div>
 </div>
 
 
@@ -81,18 +72,17 @@ window.onload = () => {
 
 //t
 //https://atlagh.github.io/test/sidebar.html
- function switchVisible() {
-            if (document.getElementById('Div1')) {
 
-                if (document.getElementById('Div2').style.display == 'block') {
-                    document.getElementById('Div1').style.display = 'block';
-                    document.getElementById('Div2').style.display = 'none';
-                }
-                else {
-                    document.getElementById('Div1').style.display = 'none';
-                    document.getElementById('Div2').style.display = 'block';
-                }
-            }
+
+
+
+ function switchVisible() {
+ 	window.todesktop.views.switch({
+    id: "content", // The data-view-id from index.html
+    url: "https://google.com",
+    partition: "default",
+  });
+            
 }
 
 </script>
