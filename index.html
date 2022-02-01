@@ -1,112 +1,12 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<div class="sidebar">
-	<nav class="sidebar" style="position: absolute; width: 100vw">
-				<img src="github.png" alt="Italian Trulli" style="cursor:  pointer;width:50px;height:50px;" 
-				     onclick="switchGithub();">
 
-				<img src="270014.png" alt="Italian Trulli" style="cursor:  pointer;width:50px;height:50px;"
-				onclick="switchGoogle();">
+<h1>The iframe element</h1>
 
-			<img src="facebook.png" alt="Italian Trulli" style="cursor: pointer;width:50px;height:50px;"
-			onclick="switchFacebook();">
-	</nav>
-	</div>
-
-
-			<div
-			  class="main"
-			  id= "Div1"
-			  data-view-url="https://github.com/"
-			  data-view-id="content"
-			  data-view-partition="default"
-			>
-			</div>
-
-
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar {
-  	display: flex;
-  	justify-content: space-around;
-    width: 100vw;
-    height: 10vh;
-    padding-top: 5px;
-    background: #41454d;
-
-  }
-  
-  .main {
-  	width:  100vw;
-  	height: 90vh;
-  }
-  .google {
-
-  }
-
- 
-
-
-</style>
-
+<iframe src="//www.google.com" width="1000" height="500">
+</iframe>
+<!-- <embed src="http://www.google.com" width="600" height="400"> </embed> -->
 
 </body>
 </html>
-
-
-<script>
-window.onload = () => {
-  window.todesktop.views.init();
-}
-
-// if (window.tode
-//   document.getElementById('Div1').style.display = 'block';
-//   document.getElementById('Div2').style.display = 'none';
-// }
-
-
-//https://atlagh.github.io/test/sidebar.html
-
-
-
-
- function switchGoogle() {
- 	window.todesktop.views.switch({
-    id: "content", // The data-view-id 
-    url: "https://google.com",
-    partition: "default",
-  });
-            
-}
-
- function switchGithub() {
- 	window.todesktop.views.switch({
-    id: "content", // The data-view-id from index.html
-    url: "https://github.com",
-    partition: "default",
-  });
-            
-}
-
- function switchFacebook() {
- 	window.todesktop.views.switch({
-    id: "content", // The data-view-id from index.html
-    url: "https://facebook.com",
-    partition: "default",
-  });
-            
-}
-
-</script>
